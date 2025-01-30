@@ -1,0 +1,32 @@
+#suggest-lang-switch {
+	display: none;
+	background: #fff;
+	color: #000;
+	text-align: center;
+	overflow: hidden;
+	max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+#suggest-lang-switch a.suggest-lang-switch-link {
+	line-height: 3em;
+	display: inline-block;
+	margin-left: 1em;
+}
+
+#suggest-lang-switch a.suggest-lang-switch-dismiss {
+  float: right;
+  margin: .3em .3em .3em 0;
+  text-decoration: none;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  font-weight: 100;
+  color: #888;
+  padding: .1em .4em;
+  border-radius: .15em;
+}
+
+#suggest-lang-switch a.suggest-lang-switch-dismiss:hover {
+  color: #888;
+  background: #eee;
+}
