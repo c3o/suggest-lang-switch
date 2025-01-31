@@ -1,7 +1,7 @@
 <?php
 /**
 * Plugin Name: Suggest Language Switch (for WPML)
-* Plugin URI: http://c3o.org
+* Plugin URI: https://github.com/c3o/suggest-lang-switch/
 * Description: WPML addon: Suggest language switching when content is also available in a user's preferred language
 * Version: 1.0
 * Author: c3o
@@ -56,12 +56,16 @@ class Suggest_Language_Switch {
 	    $callback = array( $this, 'settings');
 	    add_submenu_page('options-general.php', $page_title, $menu_title, $capability, $this->slug, $callback);
 
-	    add_action('admin_notices', function() {
-		   	if (isset($_GET['page']) && $_GET['page'] == $this->slug) {
-		    	if (!$this->wpml_active) wp_admin_notice( 'WPML not found &ndash; plugin is inactive!', ['type' => 'error'] );
-		   	} 
-	    });
+	    add_action('admin_notices', array($this, 'admin_notice'));
 
+	}
+
+	public function admin_notice() {
+		if (isset($_GET['page']) && $_GET['page'] == $this->slug) {
+			if (!$this->wpml_active) {
+				wp_admin_notice( 'WPML not found &ndash; plugin is inactive!', ['type' => 'error'] );
+			}
+		}
 	}
 
 	public function settings() { ?>
